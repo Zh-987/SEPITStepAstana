@@ -1,0 +1,7 @@
+C:\Users\assai\source\repos\SEPAstanaItStep\SEPAstanaItStep\obj\Release\net6.0\PubTmp\Out\SEPAstanaItStep.exe
+C:\Users\assai\source\repos\SEPAstanaItStep\SEPAstanaItStep\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\Users\assai\source\repos\SEPAstanaItStep\SEPAstanaItStep\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\Users\assai\source\repos\SEPAstanaItStep\SEPAstanaItStep\obj\Release\net6.0\PubTmp\Out\SEPAstanaItStep.dll
+C:\Users\assai\source\repos\SEPAstanaItStep\SEPAstanaItStep\obj\Release\net6.0\PubTmp\Out\SEPAstanaItStep.deps.json
+C:\Users\assai\source\repos\SEPAstanaItStep\SEPAstanaItStep\obj\Release\net6.0\PubTmp\Out\SEPAstanaItStep.runtimeconfig.json
+C:\Users\assai\source\repos\SEPAstanaItStep\SEPAstanaItStep\obj\Release\net6.0\PubTmp\Out\SEPAstanaItStep.pdb
