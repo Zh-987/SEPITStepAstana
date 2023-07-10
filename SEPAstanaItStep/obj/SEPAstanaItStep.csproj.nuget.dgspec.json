@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\assai\\Source\\Repos\\SEPITStepAstana\\SEPAstanaItStep\\SEPAstanaItStep.csproj": {}
+    "C:\\Users\\assai\\source\\repos\\SEPITStepAstana\\SEPAstanaItStep\\SEPAstanaItStep.csproj": {}
   },
   "projects": {
-    "C:\\Users\\assai\\Source\\Repos\\SEPITStepAstana\\SEPAstanaItStep\\SEPAstanaItStep.csproj": {
+    "C:\\Users\\assai\\source\\repos\\SEPITStepAstana\\SEPAstanaItStep\\SEPAstanaItStep.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\assai\\Source\\Repos\\SEPITStepAstana\\SEPAstanaItStep\\SEPAstanaItStep.csproj",
+        "projectUniqueName": "C:\\Users\\assai\\source\\repos\\SEPITStepAstana\\SEPAstanaItStep\\SEPAstanaItStep.csproj",
         "projectName": "SEPAstanaItStep",
-        "projectPath": "C:\\Users\\assai\\Source\\Repos\\SEPITStepAstana\\SEPAstanaItStep\\SEPAstanaItStep.csproj",
+        "projectPath": "C:\\Users\\assai\\source\\repos\\SEPITStepAstana\\SEPAstanaItStep\\SEPAstanaItStep.csproj",
         "packagesPath": "C:\\Users\\assai\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\assai\\Source\\Repos\\SEPITStepAstana\\SEPAstanaItStep\\obj\\",
         "projectStyle": "PackageReference",

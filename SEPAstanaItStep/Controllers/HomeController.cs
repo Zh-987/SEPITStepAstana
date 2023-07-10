@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SEPAstanaItStep.Models;
 using System;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 
 namespace SEPAstanaItStep.Controllers
 {
@@ -83,19 +84,139 @@ namespace SEPAstanaItStep.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-       /* [HttpGet] 
-        public IActionResult GetUsers()
+        [HttpGet]
+        public async Task GetUsers()
         {
-            return View();
-        }*/
-
-/*        [HttpPost]      // [HttpPut], [HttpDelete], [HttpPatch], [HttpHead]
-        public IActionResult PostUsers()
-        {
-            return View();
+            string content = @"<form method = 'post'>
+             <label>User Name: </label>
+             <input name='username'><br/>
+             <label>Age: </label>
+             <input type='number' name='age'><br/>
+             <input type='submit' value= 'Send'/> </form>";
+            Response.ContentType= "text/html; charset=utf-8";
+            await Response.WriteAsync(content);
         }
-*/
+
+        [HttpPost]      // [HttpPut], [HttpDelete], [HttpPatch], [HttpHead]
+        public string GetUsers(User user)
+        {
+            return $"{user.UserID}: {user.UserName}";
+        }
+        // void  IActionResult 
+
+        public IActionResult ExecuteResultSample() {
+            return new HtmlResult("<h1> HELLO IT STEP ASTANA </h1>");
+        }
+
+
+        public IActionResult QQQQQ() {
+
+            return new EmptyResult();
+
+        }
+
+        // ContentResult
+        //EmptyResult   
+        //NoContentResult 
+        //FileResult  
+        //FileContentResult  
+        //ObjectResult
+        //StatusCodeResult
+        //UnauthorizedResult
+        //NotFoundResult
+        //NotFoundObjectResult 
+        //BadRequestResult
+        //BadRequestObjectResult
+        //okResult
+        //okObjectResult 
+        //CreatedResult 
+        //CreatedAtActionResult and CreatedAtRouteResult 
+        // AcceptedResult
+        // AcceptedAtActionbResult and  AcceptedAtRouteResult
+        // JsonResult 
+        // ParialViewResult 
+        // RediredtResult 
+        // RedirectToRouteResult and RedirectToActionResult and RedirectToPageResult
+        // LoadRedirectResult 
+        // ViewCompanentResult 
+        // ViewResult
+
+
+        public IActionResult ContentExample() {
+            return Content("Hello IT STEP");
+        }
+
+        public JsonResult JsonExample() {
+            return Json("Name");
+        }
+
+        public IActionResult JsonResultExample() {
+            User user = new User(001, "qwerty");
+            var jsonOptions = new System.Text.Json.JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                WriteIndented = true
+            };
+            return Json(user, jsonOptions);
+        }
+
+
+        public IActionResult RedirecttoActionExample() {
+            return Redirect("~/Home/ContentExample");
+        }
+
+        public IActionResult RedirecttoRouteExample()
+        {
+            return Redirect("https://github.com/Zh-987/SEPITStepAstana/tree/main/SEPAstanaItStep/Controllers");
+        }
+        public IActionResult RedirectPermanentExample() {
+            return RedirectPermanent("~/Home/ContentExample");
+        }
+        public IActionResult RedirectLocalExample()
+        {
+            return LocalRedirect("~/Home/ContentExample");
+            //return LocalRedirectPermanent("~/Home/ContentExample");
+        }
+
+        public IActionResult RedirectActionEcxamle()
+        {
+            return RedirectToAction("JsonResultExample", "Home");
+        }
+
+        public IActionResult RedirectActionWithParametersEcxamle()
+        {
+            return RedirectToAction("JsonResultExample", "Home", new { userid = 001, username = "qwerty"});  // /Home/JsonResultExample?userid=001&username=qwerty
+        }
+
+        public IActionResult RedirectRouteEcxamle()
+        {
+            return RedirectToRoute("default", new { controller = "Home", action = "", userid = "", username = "" };
+        }
+        public IActionResult StatusCodeResult() {
+            return StatusCode(401);
+        }
+
+        public IActionResult NOtFoundResult()
+        {
+            return NotFound("Resource not found");
+        }
+        public IActionResult UnauthorizedResultExample(int age)
+        {
+            if (age < 18) return Unauthorized(new Error("Access os denied"));
+            return Content("Access is available");
+        }
+        public IActionResult BadResultExample(string? name)
+        {
+            if (string.IsNullOrEmpty(name)) return BadRequest("Name undefined");
+            return Content($"Name: {name}");
+        }
+             public IActionResult OkResultExample(string? name)
+        {
+            return Ok("Dont worry, It step students");
+        }
+
     }
 
+    public record class Error(string Message);
     public record class User(int UserID, string UserName);
 }
