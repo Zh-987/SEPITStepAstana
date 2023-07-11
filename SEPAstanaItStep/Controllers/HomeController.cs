@@ -10,15 +10,32 @@ namespace SEPAstanaItStep.Controllers
     public class HomeController : Controller   //ControllerContext   ,  HttpContext,  ActionDescriptor, ModelState,  RouteData 
     {
         private readonly ILogger<HomeController> _logger;
+        readonly ITimeService _timeService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ITimeService timeService)
         {
             _logger = logger;
+            _timeService = timeService;
+        }
+
+        public string Index2() {
+            return _timeService.Time;
+        }
+
+        public string Index3([FromServices] ITimeService timeService)
+        {
+            return timeService.Time;
+        }
+
+        public string Index4()
+        {
+            ITimeService? timeService = HttpContext.RequestServices.GetService<ITimeService>();
+            return timeService?.Time ?? "Undefined";
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View("~Views/Home2/Main.cshtml");  // View(string? viewName)   ,   View(object? model)   ,  View(string? viewName,object? model)
         }
 
         public string StringForParameter(User[] user)
@@ -190,7 +207,7 @@ namespace SEPAstanaItStep.Controllers
 
         public IActionResult RedirectRouteEcxamle()
         {
-            return RedirectToRoute("default", new { controller = "Home", action = "", userid = "", username = "" };
+            return RedirectToRoute("default", new { controller = "Home", action = "", userid = "", username = "" });
         }
         public IActionResult StatusCodeResult() {
             return StatusCode(401);
@@ -214,7 +231,23 @@ namespace SEPAstanaItStep.Controllers
         {
             return Ok("Dont worry, It step students");
         }
+        //FileContentResult  VirtualFileResult FileStreamResult   - File()  PhysicalFileResult   -  PysicalFile()
+        public IActionResult FileExample() {
+            string file_path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Files/text.txt");
+            //byte[] array = System.IO.File.ReadAllBytes(file_path);
+            FileStream fileStream = new FileStream(file_path, FileMode.Open);
+            string file_type = "text/plain";
+            string file_name = "text.txt";
+            //return PhysicalFile(file_path, file_type, file_name);
+            //return File(array, file_type, file_name);
+            return File(fileStream, file_type, file_name);
+        }
+        public IActionResult FileVirtualExample()
+        {
+            return File("Files/text.txt", "application/octet-stream", "hello.txt");
+        }
 
+        // OnActionExecuting() OnActionExecuted()  OnActionExecutionAsync() 
     }
 
     public record class Error(string Message);

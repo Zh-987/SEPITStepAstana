@@ -1,0 +1,142 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+int i = 8;
+    <text>@i</text>
+*@
+
+@model List<string>
+@{
+    string hello = "Hello all from Astana";
+    string text = "It`s pleasure too working with you";
+
+    string morning = "Good morning";
+    string evening = "Good evening";
+    int hour = DateTime.Now.Hour;
+    string language = "russian";
+    string[] people = { "Kanat", "Aisaule", "Zhanar" };
+    var j = 0;
+    bool isEnabled = true;
+    ViewData["Title"] = "Main";
+    ViewBag.Title2 = "Main2";
+}
+
+<h2>Count of people: @Model.Count</h2>
+<ul>
+    @foreach(string person in Model)
+    {
+    <li>@person</li>    
+    }
+
+</ul>
+
+<h2> Count people: @ViewBag.People.Count <h2>
+
+    <ul>
+            @foreach(string person in ViewBag.People)
+            {
+                <li>@person</li>
+            }
+        </ul>
+
+
+<h2>@ViewData["Message"]</h2>
+<h2>@ViewData["Title"]</h2>
+
+
+<h2>@ViewBag.Message2</h2>
+<h2>@ViewBag.Title2</h2>
+
+
+@if (isEnabled)
+{
+    
+    @: Hello World
+}
+
+
+@if (hour < 12)
+{
+<h2>@morning</h2>    
+}
+else if(hour>17){
+    <h2>@evening</h2>
+}
+else
+{
+    <h1>Hello All</h1>
+    <h2>And @hello</h2>
+    <h3>@text</h3>
+    <h3> Current time: @DateTime.Now.ToLongTimeString()</h3>
+
+    <p>@(20 + 30)</p>
+
+    <p> @@Datetime.now = @DateTime.Now.ToShortTimeString()</p>
+
+
+}
+
+@switch(language){
+    case "kazakh":
+        <h3>Сәлем Әлем!!!</h3>
+        break;
+    case "russian":
+        <h3>Привет Мир</h3>
+        break;
+    default:
+        <h3>Hello World</h3>
+        break;
+}
+<ul>
+    @for(int i = 0; i<people.Length; i++)
+    {
+    <li>@people[i]</li>    
+    }
+</ul>
+<ul>
+    @foreach(var person in people)
+    {
+        <li>@person</li>
+    }
+</ul>
+<ul>
+    @while(j<people.Length)
+    {
+        <li>@people[j++]</li>
+    }
+</ul>
+<ul>@do
+    {
+        <li></li>
+    }
+    while (j++<people.Length);
+</ul>
+
+@try
+{
+    throw new InvalidOperationException("Somethink wrong");
+}
+catch (Exception ex)
+{
+    <p>Exception: @ex.Message</p>
+}
+finally{
+    <p>finally</p>
+}
+
+@functions{
+    public int Sum(int a, int b)
+    {
+        return a + b;
+    }
+    public int Square(int n)
+    {
+        return n * n;
+    }
+    }
+
+<p>Sum of the 10 and 9 = <b>@Sum(10,9)</b> </p>
+<p>Square of the 10 = <b>@Square(10)</b> </p>
+
+    <script> 
+
+    </script>

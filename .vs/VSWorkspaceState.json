@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SEPAstanaItStep",
+    "\\SEPAstanaItStep\\Controllers"
   ],
-  "SelectedNode": "\\SEPAstanaItStep.sln",
+  "SelectedNode": "\\SEPAstanaItStep\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }

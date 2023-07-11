@@ -9,37 +9,45 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SEPAstanaItStep
 build_property.RootNamespace = SEPAstanaItStep
-build_property.ProjectDir = C:\Users\assai\source\repos\SEPITStepAstana\SEPAstanaItStep\
+build_property.ProjectDir = C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\assai\source\repos\SEPITStepAstana\SEPAstanaItStep
+build_property.MSBuildProjectDirectory = C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/assai/source/repos/SEPITStepAstana/SEPAstanaItStep/Views/Home/Index.cshtml]
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Views/Home2/Main.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZTJcTWFpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/assai/source/repos/SEPITStepAstana/SEPAstanaItStep/Views/Home/Privacy.cshtml]
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/assai/source/repos/SEPITStepAstana/SEPAstanaItStep/Views/Shared/Error.cshtml]
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/assai/source/repos/SEPITStepAstana/SEPAstanaItStep/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/assai/source/repos/SEPITStepAstana/SEPAstanaItStep/Views/_ViewImports.cshtml]
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/assai/source/repos/SEPITStepAstana/SEPAstanaItStep/Views/_ViewStart.cshtml]
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/assai/source/repos/SEPITStepAstana/SEPAstanaItStep/Views/Shared/_Layout.cshtml]
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bi7ao402l8
