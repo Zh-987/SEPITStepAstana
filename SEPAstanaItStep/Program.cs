@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Routing.Constraints;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -24,10 +26,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
+/*app.MapControllerRoute(   // MapAreaControllerRoute()  MapController()  MapFallbackToController()
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+    //constraints: new { id= new IntRouteConstraint()}
+    ); // Home/index/4
+app.MapControllerRoute(name: "name_age",pattern:"{controller}/{action}/{name}/{age}"); // Home/Index/Miras/25
+*/
 
+app.MapControllers();
 app.Run();
 
 public interface ITimeService { 
@@ -37,3 +44,5 @@ string Time { get; }
 public class SimpleTimeService : ITimeService {
     public string Time => DateTime.Now.ToString("hh:mm:ss");
 }
+
+//IEndpointRouteBuilder   MapContorollerRoute()

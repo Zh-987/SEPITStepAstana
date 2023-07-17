@@ -33,9 +33,14 @@ namespace SEPAstanaItStep.Controllers
             return timeService?.Time ?? "Undefined";
         }
 
+        [Route("Home/Index")]
         public IActionResult Index()
         {
-            return View("~Views/Home2/Main.cshtml");  // View(string? viewName)   ,   View(object? model)   ,  View(string? viewName,object? model)
+            return View();  // View(string? viewName)   ,   View(object? model)   ,  View(string? viewName,object? model)
+        }
+        [Route("Hello")]
+        public IActionResult Hello() {
+            return PartialView();
         }
 
         public string StringForParameter(User[] user)
@@ -248,8 +253,26 @@ namespace SEPAstanaItStep.Controllers
         }
 
         // OnActionExecuting() OnActionExecuted()  OnActionExecutionAsync() 
-    }
+        [HttpGet]
+        public IActionResult WorkingWithForms() {
+            return View();
+        }
 
+        [HttpPost]
+        public string WorkingWithForms(string username, string password, int age,bool isMarried, string sex, string country,string comment)
+        {
+            return $"User name: {username} \t Password: {password} \t Age: {age} \t isMarried: {isMarried} \t Sex: {sex} \t Country: {country} \t Comment: {comment}";
+        }
+        public string Map() {
+            var controller = RouteData.Values["controller"];
+            var action = RouteData.Values["action"];
+            return $"controller: {controller} | action: {action}"; 
+                }
+        public string Name_age(string name, int age) {
+            return $"Name_age page . Name: {name} \t Age: {age}";
+        }
+
+    }
     public record class Error(string Message);
     public record class User(int UserID, string UserName);
 }

@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2>User name Form</h2>
+
+<form method="post">
+    <p>
+        <label>Username:</label>
+        <input type="text" name="username" /> <br />
+    </p>
+    <p>
+        <label>Password:</label>
+        <input type="password" name="password" /> <br />
+    </p>
+    <p>
+        <label>Age:</label>
+        <input type="number" name="age" /> <br />
+    </p>
+    <p>
+        <label>Is Married:</label>
+        <input type="checkbox" name="isMarried" value="false" /> <br />
+    </p>
+    <p>
+        <input name="sex" type="radio" value="Male">
+        <span>Male</span>
+        <input checked="checked" name="sex" type="radio" value="Female">
+        <span>Female</span>
+    </p><br />
+    <p>
+        <label> Select Country:</label>
+        <select name="country">
+            <option value="Kazakhstan">Kazakhstan</option>
+            <option value="Ukraine">Ukraine</option>
+            <option value="Japan">Japan</option>
+        </select>
+
+    </p>
+    <p>
+        <label>Comment:</label>
+        <textarea name="comment" > </textarea> <br />
+    </p>
+    <p> <input type="submit" value="Submit" /></p>
+   
+   
+</form> 

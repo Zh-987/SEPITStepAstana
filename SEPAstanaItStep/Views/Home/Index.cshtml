@@ -1,8 +1,22 @@
-﻿@{
+﻿@inject ITimeService timeService
+
+@{
     ViewData["Title"] = "Home Page";
+    User user = new User(123456,"qwerty");
 }
+
+@await Html.PartialAsync("Hello", new List<string>{"Сәлем", "Привет","Hello","Hola"})
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<h2>Current Time: @timeService.Time</h2>
+<h2>Users Data</h2>
+<h3>User ID: @user.UserID</h3>
+<h3>User Name: @user.UserName</h3>
+
+@section Footer{
+    &copy; 2023 - SEPAstanaItStep - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy - All rights reserved</a>
+}
