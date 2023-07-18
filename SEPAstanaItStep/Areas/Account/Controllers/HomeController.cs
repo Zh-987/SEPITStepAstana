@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using SEPAstanaItStep.Areas.Account.Models;
 using SEPAstanaItStep.Areas.Account.ViewModels;
 
@@ -46,13 +47,17 @@ namespace SEPAstanaItStep.Areas.Account.Controllers
         }
 
         public string Index2(User usr) {     //  localhost/profile/Index2?name=Miras
-            return $"{usr.Name}({usr.Age})";
+            return $"{usr.Name}({usr.Age}) - {usr.Work?.Name}";
         }  
-        
+        //ModelState.isValid
         // IModelBinder
-        // Request.Form["name"]
-        // RouteData.Values["name"]
-        // Request.Query["name"]   [name of parameter].[name of properties]
+
+        // Request.Form["user.name"]
+        // RouteData.Values["user.name"]
+        // Request.Query["user.name"]
+        //
+        //
+        // [name of parameter].[name of properties]
         // Areas/Account/Views/Home
     }
 }
