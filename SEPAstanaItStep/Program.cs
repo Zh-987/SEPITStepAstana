@@ -25,14 +25,19 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
-/*app.MapControllerRoute(   // MapAreaControllerRoute()  MapController()  MapFallbackToController()
+// localhost/Account
+app.MapAreaControllerRoute(
+    name: "Account_area",
+    areaName: "Account",
+    pattern: "profile/{controller=Home}/{action=Index}/{id?}"
+    );
+app.MapControllerRoute(   // MapAreaControllerRoute()  MapController()  MapFallbackToController()
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
     //constraints: new { id= new IntRouteConstraint()}
     ); // Home/index/4
-app.MapControllerRoute(name: "name_age",pattern:"{controller}/{action}/{name}/{age}"); // Home/Index/Miras/25
-*/
+//app.MapControllerRoute(name: "name_age", pattern: "{controller}/{action}/{name}/{age}"); // Home/Index/Miras/25
+
 
 app.MapControllers();
 app.Run();

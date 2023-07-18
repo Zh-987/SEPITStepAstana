@@ -7,6 +7,8 @@ using System.Diagnostics.Contracts;
 
 namespace SEPAstanaItStep.Controllers
 {
+  /*  [Route("Study")]
+    [Route("{controller}")]*/
     public class HomeController : Controller   //ControllerContext   ,  HttpContext,  ActionDescriptor, ModelState,  RouteData 
     {
         private readonly ILogger<HomeController> _logger;
@@ -32,14 +34,24 @@ namespace SEPAstanaItStep.Controllers
             ITimeService? timeService = HttpContext.RequestServices.GetService<ITimeService>();
             return timeService?.Time ?? "Undefined";
         }
+        [Route("Main")]  // Home/Main   Study/Main
+        [Route("Index6")] // Home/Index6   Study/Main
+        public string Index6(string controller, string action)
+        {
+            /*var controller = RouteData.Values["controller"];
+            var action = RouteData.Values["action"];*/
+            return $"controller: {controller} \t action: {action}";  // View(string? viewName)   ,   View(object? model)   ,  View(string? viewName,object? model)
+        }
 
-        [Route("Home/Index")]
+        // [Route("{controller=Home}/{action=Index}")]   // localhost/Home/Index  or  localhost/Home   or  localhost
         public IActionResult Index()
         {
+           /* var controller = RouteData.Values["controller"];
+            var action = RouteData.Values["action"];*/
             return View();  // View(string? viewName)   ,   View(object? model)   ,  View(string? viewName,object? model)
         }
-        [Route("Hello")]
-        public IActionResult Hello() {
+        [Route("/{id:int}/{name:maxlength(10)}")]
+        public IActionResult Hello(int id, string name) {
             return PartialView();
         }
 

@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>Find users of the MAANG companies</h2>
+
+<form>
+<label> Select company:</label>
+<select name="companyId">
+        @foreach(CompanyModel comp in Model.Companies)
+        {
+            <option value="@comp.Id">@comp.Name</option>
+        }
+    </select>
+    <input type="submit"/>
+</form>
+</br>
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Company</td>
+        <td>Age</td>
+    </tr>
+    @foreach (User u in Model.User)
+    {
+        <tr> 
+            <td>@u.Id</td>
+            <td>@u.Name</td>
+            <td>@u.Work.Name</td>
+            <td>@u.Age</td>
+        </tr>
+    }
+</table>

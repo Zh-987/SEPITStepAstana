@@ -16,6 +16,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Areas/Account/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Areas/Account/Views/Home/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xIb21lXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Areas/Account/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/assai/Source/Repos/SEPITStepAstana/SEPAstanaItStep/Views/Home2/Main.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZTJcTWFpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

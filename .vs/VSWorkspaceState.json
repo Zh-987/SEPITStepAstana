@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\SEPAstanaItStep",
-    "\\SEPAstanaItStep\\Controllers"
+    "\\SEPAstanaItStep\\Controllers",
+    "\\SEPAstanaItStep\\Views",
+    "\\SEPAstanaItStep\\Views\\Home2"
   ],
-  "SelectedNode": "\\SEPAstanaItStep.sln",
+  "SelectedNode": "\\SEPAstanaItStep\\Views\\Home2\\Main.cshtml",
   "PreviewInSolutionExplorer": false
 }
