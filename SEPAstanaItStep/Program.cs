@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Routing.Constraints;
+using SEPAstanaItStep.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(opts => { opts.ModelBinderProviders.Insert(0, new EventModelBinderProvider()); });
+//builder.Services.AddControllersWithViews(opts => { opts.ModelBinderProviders.Insert(0, new CustomdateTimeModelBinderProvider());});
+
 builder.Services.AddTransient<ITimeService, SimpleTimeService>();
 //builder.Services.AddMvc();
 //builder.Services.AddMvcCore();

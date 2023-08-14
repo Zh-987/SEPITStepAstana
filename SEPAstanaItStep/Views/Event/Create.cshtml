@@ -1,0 +1,65 @@
+﻿@model SEPAstanaItStep.Models.Event
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div-- class="col-md-4">
+        <!--
+<form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label> Name </label>
+                <input type="text" name="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span >
+            </div>
+            <div class="form-group">
+                <label>
+                    Дата
+                </label>
+                <input type="date" name="Date"></input>
+            </div>
+              <div class="form-group">
+                <label>
+                    Время
+                </label>
+                <input type="time" name="Time"></input>
+            </div>
+         
+
+           
+
+
+        </form>
+        -->
+        
+    </div>
+
+    <div class="row">
+        @using(Html.BeginForm("Create", "Event", FormMethod.Post))
+        {
+            <div class="col">  <label>Name</label> @Html.TextBox("Name")</div>
+            <div class="col"><label>Date</label> @Html.TextBox("Date","",new{type="date"}) </div>
+            <div class="col"><label>Time</label> @Html.TextBox("Time","",new{type="time"}) </div>
+            <div class="col"><label>Age</label> @Html.TextBox("Age","",new{type="number"}) </div>
+            <div class="col"><label>Age</label> @Html.TextArea("Age","Напишите здесь", 5,50 , null) </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
