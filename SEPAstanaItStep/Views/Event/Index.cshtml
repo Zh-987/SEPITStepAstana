@@ -1,18 +1,35 @@
 ﻿@model IEnumerable<SEPAstanaItStep.Models.Event>
+
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers 
+<!--  removeTagHelper "*,Microsoft.AspNetCore.Mvc.TagHelpers" -->
 @using SEPAstanaItStep.Helpers
 @{
     string[] cities = new string[] { "Astana", "Tashkent", "Bishkek" };
     ViewData["Title"] = "Index";
 }
 
+@Html.ActionLink("Домой", "Index", "Home")
+
+@Html.ActionLink("Детали", "Details", "Event", new {id = 2 }, null)
+
+@Html.ActionLink("Детали2", "Details", "Event", new {id = 5, name = "Black", CodeOfColor = 1212 }, new {id = "Color", @class = "link"})
+
+@Html.RouteLink("Color", new {controller = "Home", action = "Index", name = "White", id= 6, CodeOfColor = 5454 }, new {id = "Color"})
+
+@Html.RouteLink("Создать 2", "Default", new {action = "Create"}, new {id = "Color"})
+
+
+<a href="@Url.Action("Index", "Home", null, null)">ссылка</a>
+
+<a href="@Url.RouteUrl( new {controller = "Home", action="Index"})">ссылка</a>
+
 <h1>Index</h1>
 
 <p>
+    @Html.ActionLink("Создать новую", "Create") <!--Event/Create-->
     <a asp-action="Create">Create New</a>
+    <a asp-area="Account" asp-controller="Home" asp-action="Index">Area account Index </a>
 </p>
-
-
-
 
 
 <table class="table">

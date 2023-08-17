@@ -2,10 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\SEPAstanaItStep",
-    "\\SEPAstanaItStep\\Controllers",
-    "\\SEPAstanaItStep\\Views",
-    "\\SEPAstanaItStep\\Views\\Home2"
+    "\\SEPAstanaItStep\\Areas",
+    "\\SEPAstanaItStep\\Areas\\Account",
+    "\\SEPAstanaItStep\\Areas\\Account\\Controllers",
+    "\\SEPAstanaItStep\\Areas\\Account\\Models",
+    "\\SEPAstanaItStep\\Areas\\Account\\ViewModels",
+    "\\SEPAstanaItStep\\Areas\\Account\\Views",
+    "\\SEPAstanaItStep\\Areas\\Admin\\Models",
+    "\\SEPAstanaItStep\\Models"
   ],
-  "SelectedNode": "\\SEPAstanaItStep\\Program.cs",
+  "SelectedNode": "\\SEPAstanaItStep\\Areas\\Account\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }
