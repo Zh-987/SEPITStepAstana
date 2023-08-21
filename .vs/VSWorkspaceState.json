@@ -2,15 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\SEPAstanaItStep",
-    "\\SEPAstanaItStep\\Areas",
-    "\\SEPAstanaItStep\\Areas\\Account",
     "\\SEPAstanaItStep\\Areas\\Account\\Controllers",
-    "\\SEPAstanaItStep\\Areas\\Account\\Models",
     "\\SEPAstanaItStep\\Areas\\Account\\ViewModels",
     "\\SEPAstanaItStep\\Areas\\Account\\Views",
-    "\\SEPAstanaItStep\\Areas\\Admin\\Models",
-    "\\SEPAstanaItStep\\Models"
+    "\\SEPAstanaItStep\\Helpers",
+    "\\SEPAstanaItStep\\Views",
+    "\\SEPAstanaItStep\\Views\\Event"
   ],
-  "SelectedNode": "\\SEPAstanaItStep\\Areas\\Account\\Controllers\\HomeController.cs",
+  "SelectedNode": "\\SEPAstanaItStep.sln",
   "PreviewInSolutionExplorer": false
 }

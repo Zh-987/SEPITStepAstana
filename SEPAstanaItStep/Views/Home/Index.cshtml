@@ -5,18 +5,45 @@
     User user = new User(123456,"qwerty");
 }
 
-@await Html.PartialAsync("Hello", new List<string>{"Сәлем", "Привет","Hello","Hola"})
+<environment names="Development">
+    @await Html.PartialAsync("Hello", new List<string>{"Сәлем", "Привет","Hello","Hola"})
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
 
-<h2>Current Time: @timeService.Time</h2>
-<h2>Users Data</h2>
-<h3>User ID: @user.UserID</h3>
-<h3>User Name: @user.UserName</h3>
+    <h2>Current Time: @timeService.Time</h2>
+    <h2>Users Data</h2>
+    <h3>User ID: @user.UserID</h3>
+    <h3>User Name: @user.UserName</h3>
 
-@section Footer{
-    &copy; 2023 - SEPAstanaItStep - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy - All rights reserved</a>
-}
+    <div class="container"> 
+        <div class="row">
+            <p> Некэшируемое время <b>@DateTime.Now.ToString("HH:mm:ss")</b></p>
+        </div>
+        <div class="row">
+            <cache priority="Microsoft.Extensions.Caching.Memory.CacheItemPriority.NeverRemove" vary-by="@ViewBag.Id" expires-sliding="@TimeSpan.FromSeconds(30) ">
+                <p> Кэшируемое время <b>@DateTime.Now.ToString("HH:mm:ss")</b></p>
+            </cache>
+        </div>
+
+
+        <div class="row">
+            <summary>
+                <timer></timer>
+                <date></date>
+            </summary>
+        </div>
+    </div>
+
+
+
+    @section Footer{
+        &copy; 2023 - SEPAstanaItStep - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy - All rights reserved</a>
+    }
+</environment>
+
+<environment names="Production">
+    <h1>This project is under of deleopment</h1>
+</environment>
