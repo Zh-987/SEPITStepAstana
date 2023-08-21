@@ -18,26 +18,30 @@
     <h3>User ID: @user.UserID</h3>
     <h3>User Name: @user.UserName</h3>
 
-    <div class="container"> 
+    <div-- class="container"> 
         <div class="row">
             <p> Некэшируемое время <b>@DateTime.Now.ToString("HH:mm:ss")</b></p>
         </div>
-        <div class="row">
-            <cache priority="Microsoft.Extensions.Caching.Memory.CacheItemPriority.NeverRemove" vary-by="@ViewBag.Id" expires-sliding="@TimeSpan.FromSeconds(30) ">
-                <p> Кэшируемое время <b>@DateTime.Now.ToString("HH:mm:ss")</b></p>
+        <!-- div class="row">
+            <cache priority="Microsoft.Extensions.Caching.Memory.CacheItemPriority.NeverRemove" vary-by="@ViewBag.Id" expires-sliding="TimeSpan.FromSeconds(30) ">
+                <p> Кэшируемое время <b>DateTime.Now.ToString("HH:mm:ss")</b></p>
             </cache>
-        </div>
+        </div-->
 
 
         <div class="row">
             <summary>
-                <timer></timer>
+                <timer/>
                 <date></date>
             </summary>
         </div>
-    </div>
 
+        @await Component.InvokeAsync("Timer");
 
+        <p>
+            <vc:timer />
+        </p>
+        @await Component.InvokeAsync("Header");
 
     @section Footer{
         &copy; 2023 - SEPAstanaItStep - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy - All rights reserved</a>

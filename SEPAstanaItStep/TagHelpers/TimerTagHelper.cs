@@ -1,11 +1,28 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace SEPAstanaItStep.TagHelpers
 {
     public class TimerTagHelper : TagHelper  //<timer> </timer>  <timer/>  <br/>
     {
+        ITimeService _timeService;
+
+        [ViewContext]
+        [HtmlAttributeName]
+        public ViewContext? ViewContext { get; set; }
+        public TimerTagHelper(ITimeService timeService) { 
+            _timeService = timeService;
+        }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            string? font = ViewContext?.HttpContext.Request.Query["font"];
+
+            if (string.IsNullOrEmpty(font)) {
+                font = "Verdana";
+            }
+
+            output.Attributes.SetAttribute("style", $"font-family:{font}; font-size:16px;");
             output.TagName = "div";
             output.TagMode = TagMode.StartTagAndEndTag;
 
@@ -16,7 +33,7 @@ namespace SEPAstanaItStep.TagHelpers
             output.Attributes.SetAttribute("style", "color:blue");
             output.Attributes.SetAttribute("class", "timer");
 
-            output.Content.SetContent($"<div>Current Time: {DateTime.Now.ToString("HH:mm:ss")}</div>");
+            output.Content.SetContent($"Current Time: {_timeService.Time}");
         }
     }
     //<h4>Date and Time</h4>
