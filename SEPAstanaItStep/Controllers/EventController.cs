@@ -28,12 +28,53 @@ namespace SEPAstanaItStep.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Event myevent)
+        public IActionResult Create(Event myevent)
         {
             //myevent.Id = Guid.NewGuid().ToString();
-            events.Add(myevent);
+             events.Add(myevent);
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Create2()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public string Create2(Person person)
+        {
+            if(person.Age > 110 || person.Age < 0)
+            {
+                ModelState.AddModelError("Age","Возраст должен находиться в диапазоне от 0 до 110");
+            }
+            if (person.Name?.Length < 3) {
+                ModelState.AddModelError("Name", "Недопустимая длина строки. Имя должно иметь больше 2 символов");
+            }
+            if (person.Name == "admin" && person.Age == 30) {
+                ModelState.AddModelError("", "Некорректные данные");
+            }
+
+
+            if (ModelState.IsValid) //Valid inValid
+            {
+                return $"{person.Name} - {person.Age}";
+            }
+            string errorMessages = "";
+            foreach (var item in ModelState) {
+                // item.Key;
+                // item.Value
+                if (item.Value.ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid) {
+                    errorMessages = $"{errorMessages}\n Ошибки для свойства {item.Key}: \n";
+                    foreach (var error in item.Value.Errors)
+                    {
+                        errorMessages = $"{errorMessages}{error.ErrorMessage}";
+                    }
+
+                }
+             
+            }
+            return errorMessages;
         }
 
         public string Details(int id = 1, string name = "Red", int CodeOfColor= 12345) {
@@ -47,5 +88,12 @@ namespace SEPAstanaItStep.Controllers
             return $"{contentURL} \n {actionURL}";
         }
 
+        [AcceptVerbs("Get", "Post")]
+        public IActionResult CheckEmail(string email) {
+            if (email == "admin@gmail.com" || email == "zhassulan@gmail.com") {
+                return Json(false);
+            }
+            return Json(true);
+        }
     }
 }

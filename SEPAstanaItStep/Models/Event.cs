@@ -4,11 +4,17 @@ namespace SEPAstanaItStep.Models
 {
     public class Event
     {
+        [Required]
         public string Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        
         public string Name2 { get; set; }
+       
         public string Name3 { get; set; }
+        [Required]
         public int Age { get; set; }
+        [Required]
         public DateTime EventDate { get; set; }
     }
 

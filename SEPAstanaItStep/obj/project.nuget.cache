@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/m3OCltWdMNrvqoV25aIMUQCzfHTRqOQahadNEMfJ6/lm9duf6t00Cz1V7eXaVeuIWXm6rynLGZjVxUvqOkmHg==",
+  "dgSpecHash": "KQGUTpNOKz4mgIISKfAWtfYhFWCnz9kYcupd/S9FAvxfrOVj+MetiRX3o4UWoYl2hsGVdunbCz9/sTowXolP8w==",
   "success": true,
   "projectFilePath": "C:\\Users\\assai\\Source\\Repos\\SEPITStepAstana\\SEPAstanaItStep\\SEPAstanaItStep.csproj",
   "expectedPackageFiles": [
@@ -192,7 +192,9 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\assai\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\assai\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\assai\\.nuget\\packages\\xunit.extensibility.core\\2.5.0\\xunit.extensibility.core.2.5.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -2,10 +2,6 @@
   "ExpandedNodes": [
     "",
     "\\SEPAstanaItStep",
-    "\\SEPAstanaItStep\\Areas\\Account\\Controllers",
-    "\\SEPAstanaItStep\\Areas\\Account\\ViewModels",
-    "\\SEPAstanaItStep\\Areas\\Account\\Views",
-    "\\SEPAstanaItStep\\Helpers",
     "\\SEPAstanaItStep\\Views",
     "\\SEPAstanaItStep\\Views\\Event"
   ],

@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews(opts => { opts.ModelBinderProviders.Insert(0, new EventModelBinderProvider()); });
 //builder.Services.AddControllersWithViews(opts => { opts.ModelBinderProviders.Insert(0, new CustomdateTimeModelBinderProvider());});
 
+builder.Services.AddControllersWithViews(options => options.MaxModelValidationErrors = 20);
 builder.Services.AddTransient<ITimeService, SimpleTimeService>();
 //builder.Services.AddMvc();
 //builder.Services.AddMvcCore();

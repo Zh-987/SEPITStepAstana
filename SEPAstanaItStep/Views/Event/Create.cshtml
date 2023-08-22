@@ -42,7 +42,7 @@
                 @Html.LabelFor(m=>m.Name, "Name")
             </div>
             <div class="col">  
-                @Html.Editor("Name")
+                @Html.Editor("Name", "Name")
             </div>
             <div class="col">
                 <label>Date</label> 
@@ -59,7 +59,7 @@
 
             <div class="col"><label>Age</label> </div>
         <div class="col">
-            @Html.EditorFor( m => m.Age)</div>
+            @Html.EditorFor(m => m.Age, "Age")</div>
 
             <div class="col"><label>Comment</label> </div>
 

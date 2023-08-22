@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.5.0" />
   </ItemGroup>
 
 </Project>
