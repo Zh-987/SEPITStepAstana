@@ -12,7 +12,7 @@ namespace SEPAstanaItStep.Models
         public string Name2 { get; set; }
        
         public string Name3 { get; set; }
-        [Required]
+    
         public int Age { get; set; }
         [Required]
         public DateTime EventDate { get; set; }

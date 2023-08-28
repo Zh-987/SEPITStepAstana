@@ -1,7 +1,41 @@
 using Microsoft.AspNetCore.Routing.Constraints;
+using SEPAstanaItStep.Filters;
 using SEPAstanaItStep.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+
+/*builder.Services.AddMvc(
+    options => {
+        //options.Filters.Add(typeof(SimpleResourceFilter));
+
+        //options.Filters.Add(new SimpleResourceFilter());
+
+        options.Filters.Add<SimpleResourceFilter>();
+
+    }
+    );*/
+
+builder.Services.AddControllersWithViews(
+    options => {
+        //options.Filters.Add(typeof(SimpleResourceFilter));
+
+        //options.Filters.Add(new SimpleResourceFilter());
+
+        options.Filters.Add<GlobalResourceFilter>();
+
+    }
+    );
+
+
+
+/*
+ 1 Global - Executing
+ 2 Controller - Executing
+ 3 Action of Controller - Executing
+ 4 Action of Controller - Executed
+ 5 Controller - Executed
+ 6 Global - Executed
+ */
 
 // Add services to the container.
 builder.Services.AddControllersWithViews(opts => { opts.ModelBinderProviders.Insert(0, new EventModelBinderProvider()); });

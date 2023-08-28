@@ -3,8 +3,9 @@
     "",
     "\\SEPAstanaItStep",
     "\\SEPAstanaItStep\\Views",
-    "\\SEPAstanaItStep\\Views\\Event"
+    "\\SEPAstanaItStep\\Views\\Event",
+    "\\SEPAstanaItStep\\Views\\Home"
   ],
-  "SelectedNode": "\\SEPAstanaItStep.sln",
+  "SelectedNode": "\\SEPAstanaItStep\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

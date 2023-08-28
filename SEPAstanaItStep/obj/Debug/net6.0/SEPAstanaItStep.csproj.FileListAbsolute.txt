@@ -87,6 +87,8 @@ C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\Sys
 C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\System.Security.Permissions.dll
 C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\xunit.abstractions.dll
+C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\xunit.core.dll
 C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\af\Humanizer.resources.dll
 C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\ar\Humanizer.resources.dll
 C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\az\Humanizer.resources.dll
@@ -258,5 +260,3 @@ C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\obj\Debug\net6.0\ref
 C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\obj\Debug\net6.0\SEPAstanaItStep.pdb
 C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\obj\Debug\net6.0\SEPAstanaItStep.genruntimeconfig.cache
 C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\obj\Debug\net6.0\ref\SEPAstanaItStep.dll
-C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\xunit.abstractions.dll
-C:\Users\assai\Source\Repos\SEPITStepAstana\SEPAstanaItStep\bin\Debug\net6.0\xunit.core.dll

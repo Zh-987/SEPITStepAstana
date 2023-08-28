@@ -95,5 +95,18 @@ namespace SEPAstanaItStep.Controllers
             }
             return Json(true);
         }
+
+        public IActionResult details2() {
+            Person person = new Person
+            {
+                Id = 1,
+                Name = "Олжас Кудайбергенов",
+                Email = "olzhas@gmail.com",
+                HomePage = "https://www.google.com",
+                Age = 50,
+                DateOfBirth = new DateTime(1973,3,2)
+            };
+            return View(person);
+        }
     }
 }

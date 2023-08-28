@@ -4,11 +4,13 @@ using SEPAstanaItStep.Models;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
+using SEPAstanaItStep.Filters;
 
 namespace SEPAstanaItStep.Controllers
 {
-  /*  [Route("Study")]
-    [Route("{controller}")]*/
+    /*  [Route("Study")]
+      [Route("{controller}")]*/
+    [ControllerResourceFilter(int.MinValue)]
     public class HomeController : Controller   //ControllerContext   ,  HttpContext,  ActionDescriptor, ModelState,  RouteData 
     {
         private readonly ILogger<HomeController> _logger;
@@ -27,8 +29,8 @@ namespace SEPAstanaItStep.Controllers
         public string Index3([FromServices] ITimeService timeService)
         {
             return timeService.Time;
-        }
-
+        }   
+        [FakeNotFoundResourceFilter]
         public string Index4()
         {
             ITimeService? timeService = HttpContext.RequestServices.GetService<ITimeService>();
@@ -36,6 +38,7 @@ namespace SEPAstanaItStep.Controllers
         }
         [Route("Main")]  // Home/Main   Study/Main
         [Route("Index6")] // Home/Index6   Study/Main
+        [FakeNotFoundResourceFilter]
         public string Index6(string controller, string action)
         {
             /*var controller = RouteData.Values["controller"];
@@ -44,6 +47,8 @@ namespace SEPAstanaItStep.Controllers
         }
 
         // [Route("{controller=Home}/{action=Index}")]   // localhost/Home/Index  or  localhost/Home   or  localhost
+
+        [ActionResourceFilter]
         public IActionResult Index()
         {
            /* var controller = RouteData.Values["controller"];
