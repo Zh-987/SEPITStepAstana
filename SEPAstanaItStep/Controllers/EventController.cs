@@ -1,14 +1,22 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using SEPAstanaItStep.Filters;
 using SEPAstanaItStep.Models;
 
 namespace SEPAstanaItStep.Controllers
 {
+    [CustomExectionFilter]
     public class EventController : Controller
     {
+        ApplicationContext db;
+        public EventController(ApplicationContext context) { 
+            db=context;
+        }
         // GET: EventController
         static List<Event> events = new List<Event>();
+
+        [DateTimeExecutionFilter]
         public ActionResult Index()
         {
             return View(events);
@@ -107,6 +115,13 @@ namespace SEPAstanaItStep.Controllers
                 DateOfBirth = new DateTime(1973,3,2)
             };
             return View(person);
+        }
+
+       
+        public IActionResult Index7() {
+            int x = 0; 
+            int y = 8/x;
+            return View();
         }
     }
 }

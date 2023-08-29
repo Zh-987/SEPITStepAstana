@@ -2,10 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\SEPAstanaItStep",
-    "\\SEPAstanaItStep\\Views",
-    "\\SEPAstanaItStep\\Views\\Event",
-    "\\SEPAstanaItStep\\Views\\Home"
+    "\\SEPAstanaItStep\\Controllers",
+    "\\SEPAstanaItStep\\Views\\Event"
   ],
-  "SelectedNode": "\\SEPAstanaItStep\\Views\\Home\\Index.cshtml",
+  "SelectedNode": "\\SEPAstanaItStep\\Controllers\\EventController.cs",
   "PreviewInSolutionExplorer": false
 }

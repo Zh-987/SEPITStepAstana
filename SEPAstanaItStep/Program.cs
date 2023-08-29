@@ -1,8 +1,14 @@
 using Microsoft.AspNetCore.Routing.Constraints;
+using Microsoft.EntityFrameworkCore;
 using SEPAstanaItStep.Filters;
 using SEPAstanaItStep.Infrastructure;
+using SEPAstanaItStep.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
+
 
 /*builder.Services.AddMvc(
     options => {
@@ -15,18 +21,16 @@ var builder = WebApplication.CreateBuilder(args);
     }
     );*/
 
-builder.Services.AddControllersWithViews(
-    options => {
+builder.Services.AddScoped<SimpleResourceFilter>();
+    /*
+    options => {*/
         //options.Filters.Add(typeof(SimpleResourceFilter));
 
-        //options.Filters.Add(new SimpleResourceFilter());
+        //options.Filters.Add(new SimpleResourceFilter(50, "oucbvfciuewfe4df9wedfwedf"));
 
-        options.Filters.Add<GlobalResourceFilter>();
-
-    }
-    );
-
-
+        //options.Filters.Add<GlobalResourceFilter>();
+   /* }
+    );*/
 
 /*
  1 Global - Executing

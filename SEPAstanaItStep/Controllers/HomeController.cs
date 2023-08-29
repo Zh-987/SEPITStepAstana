@@ -10,7 +10,9 @@ namespace SEPAstanaItStep.Controllers
 {
     /*  [Route("Study")]
       [Route("{controller}")]*/
-    [ControllerResourceFilter(int.MinValue)]
+    //[ControllerResourceFilter(int.MinValue)]
+    [TypeFilter(typeof(SimpleResourceFilter))]
+    [ServiceFilter(typeof(SimpleResourceFilter))]
     public class HomeController : Controller   //ControllerContext   ,  HttpContext,  ActionDescriptor, ModelState,  RouteData 
     {
         private readonly ILogger<HomeController> _logger;
@@ -38,7 +40,8 @@ namespace SEPAstanaItStep.Controllers
         }
         [Route("Main")]  // Home/Main   Study/Main
         [Route("Index6")] // Home/Index6   Study/Main
-        [FakeNotFoundResourceFilter]
+        //[SimpleResourceFilter(30, "8v9vdfv9sd5v9fdsb5v9er")]
+        
         public string Index6(string controller, string action)
         {
             /*var controller = RouteData.Values["controller"];
@@ -46,9 +49,15 @@ namespace SEPAstanaItStep.Controllers
             return $"controller: {controller} \t action: {action}";  // View(string? viewName)   ,   View(object? model)   ,  View(string? viewName,object? model)
         }
 
+        //[CheckFilter]
+        public string Index7(int id)
+        {
+            return $"id = {id}";
+        }
+
         // [Route("{controller=Home}/{action=Index}")]   // localhost/Home/Index  or  localhost/Home   or  localhost
 
-        [ActionResourceFilter]
+        
         public IActionResult Index()
         {
            /* var controller = RouteData.Values["controller"];
