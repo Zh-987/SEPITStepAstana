@@ -1,0 +1,78 @@
+﻿@model SEPAstanaItStep.Models.Users
+
+@{
+    ViewData["Title"] = "Create2";
+}
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+
+    input.input-validation-error {
+        border: 1px solid red;
+    }
+
+    input.valid {
+        border: 1px solid green;
+    }
+
+    .validation-summary-errors {
+        color: red;
+    }
+</style>
+
+<h1>Person</h1>
+
+<hr />
+
+<!--
+    <form method="post">
+    <div class="form-group">
+        <label for="Name"> Name </label>
+        <input type="text" id="Name" name="Name" data-val="true" data-val-required="The Name is required"/>
+        <span asp-validation-for="Name" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+    </div>
+    <div class="form-group">
+        <label for="Age">Age</label>
+        <input type="number" id="Age" name="Age" data-val="true" data-val-required="The Age is required" />
+        <span asp-validation-for="Age" data-valmsg-for="Age" data-valmsg-replace="true"></span>
+    </div>
+    <div class="form-group">
+    <input type="submit" value="Send"/>
+    </div>
+</form>
+-->
+
+<form method="post">
+    <div asp-validation-summary="All">
+
+
+        <div class="form-group">
+            <label asp-for="name">  </label>
+            <input type="text" asp-for="name" />
+            <span asp-validation-for="name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="age"></label>
+            <input type="number" asp-for="age" />
+            <span asp-validation-for="age"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="email"></label>
+            <input asp-for="email" />
+            <span asp-validation-for="email"></span>
+        </div>
+        
+
+        <div class="form-group">
+            <input type="submit" value="Send" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

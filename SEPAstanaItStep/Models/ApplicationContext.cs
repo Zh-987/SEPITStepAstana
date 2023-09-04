@@ -5,7 +5,8 @@ namespace SEPAstanaItStep.Models
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<Person> person { get; set; } = null!;
+        public DbSet<Users> users { get; set; } = null!;
+        public DbSet<Company> companies { get; set; } = null!;
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) {
             Database.EnsureCreated();

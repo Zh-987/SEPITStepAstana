@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SEPAstanaItStep.Filters;
 using SEPAstanaItStep.Models;
 
@@ -12,7 +13,20 @@ namespace SEPAstanaItStep.Controllers
         ApplicationContext db;
         public EventController(ApplicationContext context) { 
             db=context;
+
+            if (!db.companies.Any()) {
+                Company google = new Company { name = "google" };
+                Company microsoft = new Company { name = "microsoft" };
+
+                Users user1 = new Users { name = "Eldar", Company = google, age = 30, email = "eldar@poshta.kz" };
+                Users user2 = new Users { name = "Qalamqas", Company = microsoft, age = 25, email = "qalamqas@poshta.kz" };
+
+                db.companies.AddRange(google, microsoft);
+                db.users.AddRange(user1, user2);
+                db.SaveChanges();
+            }
         }
+
         // GET: EventController
         static List<Event> events = new List<Event>();
 
@@ -84,6 +98,44 @@ namespace SEPAstanaItStep.Controllers
             }
             return errorMessages;
         }
+        public async Task<IActionResult> Index2(SortState sortOrder = SortState.NameAsc)
+        {
+            IQueryable<Users> users = db.users.Include(x => x.Company);
+
+            ViewData["NameSort"] = sortOrder == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
+            ViewData["AgeSort"] = sortOrder == SortState.AgeAsc ? SortState.AgeDsc : SortState.AgeAsc;
+            ViewData["EmailSort"] = sortOrder == SortState.EmailAsc ? SortState.EmailDsc : SortState.EmailAsc;
+            ViewData["CompSort"] = sortOrder == SortState.CompanyAsc ? SortState.CompanyDsc : SortState.CompanyAsc;
+
+            users = sortOrder switch
+            {
+                SortState.NameDesc => users.OrderByDescending(s => s.name),
+                SortState.AgeAsc => users.OrderBy(s => s.age),
+                SortState.AgeDsc => users.OrderByDescending(s => s.age),
+                SortState.EmailAsc => users.OrderBy(s => s.email),
+                SortState.EmailDsc => users.OrderByDescending(s => s.email),
+                SortState.CompanyDsc => users.OrderByDescending(s => s.Company!.name),
+                SortState.CompanyAsc => users.OrderBy(s => s.Company!.name),
+                SortState.NameAsc=>users.OrderBy(s=>s.name),
+            };
+            
+            return View(await db.users.AsNoTracking().ToListAsync());
+        }
+
+        public IActionResult Create3()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create3(Users user)
+        {
+            //person.Id
+            db.users.Add(user);  //insert 
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index2");
+        }
+
 
         public string Details(int id = 1, string name = "Red", int CodeOfColor= 12345) {
             Color color = new Color(id, name, CodeOfColor );
@@ -107,12 +159,12 @@ namespace SEPAstanaItStep.Controllers
         public IActionResult details2() {
             Person person = new Person
             {
-                Id = 1,
+                //Id = 1,
                 Name = "Олжас Кудайбергенов",
                 Email = "olzhas@gmail.com",
-                HomePage = "https://www.google.com",
+                //HomePage = "https://www.google.com",
                 Age = 50,
-                DateOfBirth = new DateTime(1973,3,2)
+                //DateOfBirth = new DateTime(1973,3,2)
             };
             return View(person);
         }
@@ -122,6 +174,41 @@ namespace SEPAstanaItStep.Controllers
             int x = 0; 
             int y = 8/x;
             return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id) {
+            if (id != null) {
+                /* Users? user = await db.users.FirstOrDefaultAsync(p => p.id == id);
+                 if (user != null) { 
+                     db.users.Remove(user);
+                     await db.SaveChangesAsync();
+                     return RedirectToAction("Index2");
+                 }*/
+
+                Users user = new Users { id = id.Value };
+                db.Entry(user).State = EntityState.Deleted;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index2");
+            }
+            return NotFound();
+        }
+
+        public async Task<IActionResult> Edit(int? id) {
+            if (id != null)
+            {
+                Users? user = await db.users.FirstOrDefaultAsync(p => p.id == id);
+                if (user != null) return View(user);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Users user)
+        {
+            db.users.Update(user);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index2");
         }
     }
 }

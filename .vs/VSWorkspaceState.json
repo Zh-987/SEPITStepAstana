@@ -3,8 +3,10 @@
     "",
     "\\SEPAstanaItStep",
     "\\SEPAstanaItStep\\Controllers",
+    "\\SEPAstanaItStep\\Filters",
+    "\\SEPAstanaItStep\\Views",
     "\\SEPAstanaItStep\\Views\\Event"
   ],
-  "SelectedNode": "\\SEPAstanaItStep\\Controllers\\EventController.cs",
+  "SelectedNode": "\\SEPAstanaItStep.sln",
   "PreviewInSolutionExplorer": false
 }

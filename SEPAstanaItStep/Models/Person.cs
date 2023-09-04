@@ -7,7 +7,7 @@ using System.Security.Policy;
 
 namespace SEPAstanaItStep.Models
 {
-    public class Person : IValidatableObject
+    public class Person /*: IValidatableObject*/
     {
 
         // [EmailAddress]  [CreditCard]   [Phone]  [Url]
@@ -40,7 +40,7 @@ namespace SEPAstanaItStep.Models
         [Display(Name = "Возраст")]
         public int Age { get; set; }
 
-        [DataType(DataType.Currency)]
+       /* [DataType(DataType.Currency)]
         public string? Currency { get; set; }
 
         [DataType(DataType.CreditCard)]
@@ -52,9 +52,9 @@ namespace SEPAstanaItStep.Models
 
         [Display(Name = "Дата рождения")]
         [DisplayFormat(DataFormatString="{0:dd.MM.yyyy}", ApplyFormatInEditMode =true)]
-        public DateTime? DateOfBirth { get; set; } //dd/mm/yyyy HH:MM:SS
+        public DateTime? DateOfBirth { get; set; } //dd/mm/yyyy HH:MM:SS*/
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) {
+       /* public IEnumerable<ValidationResult> Validate(ValidationContext validationContext) {
             var errors = new List<ValidationResult>();
             if (string.IsNullOrWhiteSpace(Name)) {
                 errors.Add(new ValidationResult("Введите имя!", new List<string>() { "Name" }));
@@ -67,6 +67,6 @@ namespace SEPAstanaItStep.Models
                 errors.Add(new ValidationResult("Недопустимый возраст!"));
             }
             return errors;
-        }
+        }*/
     }
 }

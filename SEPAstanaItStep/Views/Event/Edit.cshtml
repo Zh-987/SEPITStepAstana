@@ -1,0 +1,44 @@
+﻿@model SEPAstanaItStep.Models.Users
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Users</h1>
+
+<hr />
+
+
+
+<form asp-action="Edit" asp-controller="Event" asp-route-id="@Model.id">
+    <div asp-validation-summary="All">
+
+
+        <div class="form-group">
+            <label asp-for="name">  </label>
+            <input type="text" asp-for="name" />
+            <span asp-validation-for="name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="age"></label>
+            <input type="number" asp-for="age" />
+            <span asp-validation-for="age"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="email"></label>
+            <input asp-for="email" />
+            <span asp-validation-for="email"></span>
+        </div>
+        
+
+        <div class="form-group">
+            <input type="submit" value="Save" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
