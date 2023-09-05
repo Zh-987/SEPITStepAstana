@@ -98,28 +98,63 @@ namespace SEPAstanaItStep.Controllers
             }
             return errorMessages;
         }
-        public async Task<IActionResult> Index2(SortState sortOrder = SortState.NameAsc)
+        public async Task<IActionResult> Index2(string name, int company = 0, int page = 1) //SortState sortOrder = SortState.NameAsc
         {
-            IQueryable<Users> users = db.users.Include(x => x.Company);
+            int pageSize = 3;
 
-            ViewData["NameSort"] = sortOrder == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
-            ViewData["AgeSort"] = sortOrder == SortState.AgeAsc ? SortState.AgeDsc : SortState.AgeAsc;
-            ViewData["EmailSort"] = sortOrder == SortState.EmailAsc ? SortState.EmailDsc : SortState.EmailAsc;
-            ViewData["CompSort"] = sortOrder == SortState.CompanyAsc ? SortState.CompanyDsc : SortState.CompanyAsc;
+            IQueryable<Users> user = db.users.Include(p => p.Company);
 
-            users = sortOrder switch
+            if (company != null && company != 0)
             {
-                SortState.NameDesc => users.OrderByDescending(s => s.name),
-                SortState.AgeAsc => users.OrderBy(s => s.age),
-                SortState.AgeDsc => users.OrderByDescending(s => s.age),
-                SortState.EmailAsc => users.OrderBy(s => s.email),
-                SortState.EmailDsc => users.OrderByDescending(s => s.email),
-                SortState.CompanyDsc => users.OrderByDescending(s => s.Company!.name),
-                SortState.CompanyAsc => users.OrderBy(s => s.Company!.name),
-                SortState.NameAsc=>users.OrderBy(s=>s.name),
-            };
+                user = user.Where(p => p.CompanyId == company);
+            }
+            if (!string.IsNullOrEmpty(name))
+            {
+                user = user.Where(p => p.name!.Contains(name));
+            }
+
+
+            var count = await user.CountAsync();
+            var items = await user.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+           
+           
+
+            //List<Company> companies = db.companies.ToList();
+
             
-            return View(await db.users.AsNoTracking().ToListAsync());
+            //IQueryable<Users> users = db.users.Include(x => x.Company);
+            /*
+                        ViewData["NameSort"] = sortOrder == SortState.NameAsc ? SortState.NameDesc : SortState.NameAsc;
+                        ViewData["AgeSort"] = sortOrder == SortState.AgeAsc ? SortState.AgeDsc : SortState.AgeAsc;
+                        ViewData["EmailSort"] = sortOrder == SortState.EmailAsc ? SortState.EmailDsc : SortState.EmailAsc;
+                        ViewData["CompSort"] = sortOrder == SortState.CompanyAsc ? SortState.CompanyDsc : SortState.CompanyAsc;
+
+                        users = sortOrder switch
+                        {
+                            SortState.NameDesc => users.OrderByDescending(s => s.name),
+                            SortState.AgeAsc => users.OrderBy(s => s.age),
+                            SortState.AgeDsc => users.OrderByDescending(s => s.age),
+                            SortState.EmailAsc => users.OrderBy(s => s.email),
+                            SortState.EmailDsc => users.OrderByDescending(s => s.email),
+                            SortState.CompanyDsc => users.OrderByDescending(s => s.Company!.name),
+                            SortState.CompanyAsc => users.OrderBy(s => s.Company!.name),
+                            SortState.NameAsc=>users.OrderBy(s=>s.name),
+                        };*/
+           
+            /*UserListViewModel viewModel = new UserListViewModel 
+            {
+                user = user.ToList(),
+                companies = new SelectList(companies, "id", "name", company),
+                Name = name
+            };*/
+            
+            Index2ViewModel viewModel = new Index2ViewModel(items,
+                new UserListViewModel(db.companies.ToList(), company, name),
+                new PageViewModel(count, page, pageSize)
+                );
+
+            return View(viewModel); //await db.users.AsNoTracking().ToListAsync()
+        
         }
 
         public IActionResult Create3()

@@ -1,10 +1,27 @@
-﻿@model IEnumerable<SEPAstanaItStep.Models.Users>
+﻿@model SEPAstanaItStep.Models.Index2ViewModel
 @{
 }
 
 <h2> List of users</h2>
 
 <a asp-action="Create3" asp-asp-controller="Event" class="btn btn-success">Add users</a>
+
+<form method="get">
+    <div class="row">
+        <div class="col">
+            <label>Name</label>
+            <input asp-for="UserListViewModel.Name" />
+        </div>
+        <div class="col">
+            <label>Company</label>
+            <select name="company" asp-items="Model.UserListViewModel.companies"></select>
+        </div>
+        <div class="col">
+            <input type="submit" value="Filter" class="btn btn-warning"/>
+        </div>
+    </div>
+</form>
+
 
 <table class="table table-striped">
     <tr>
@@ -16,7 +33,7 @@
     <th></th>
     </tr>
 
-    @foreach(var item in Model)
+    @foreach(var item in Model.users)
     {
         <tr>
             <td>@item.name</td>
@@ -32,3 +49,18 @@
         </tr>
     }
 </table>
+<div class="row">
+    <div class="col">
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+            <a asp-action="Index2" asp-route-page="@(Model.PageViewModel.PageNumber - 1)" asp-route-name="@(Model.UserListViewModel.Name)" asp-route-company="@(Model.UserListViewModel.Name)" class="btn btn-success">Previous</a>
+        }
+    </div>
+    
+    <div class="col">
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="Index2" asp-route-page="@(Model.PageViewModel.PageNumber + 1)" asp-route-name="@(Model.UserListViewModel.Name)" asp-route-company="@(Model.UserListViewModel.Name)" class="btn btn-success">Next</a>
+        }
+    </div>
+</div>

@@ -6,7 +6,7 @@
         public string? name { get; set; }
         public int age { get; set; }
         public string? email { get; set; }
-        public int? CompnayId { get; set; }
+        public int? CompanyId { get; set; }
         public Company? Company { get; set; }
 
     }

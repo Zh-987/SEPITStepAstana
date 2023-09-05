@@ -4,9 +4,8 @@
     "\\SEPAstanaItStep",
     "\\SEPAstanaItStep\\Controllers",
     "\\SEPAstanaItStep\\Filters",
-    "\\SEPAstanaItStep\\Views",
     "\\SEPAstanaItStep\\Views\\Event"
   ],
-  "SelectedNode": "\\SEPAstanaItStep.sln",
+  "SelectedNode": "\\SEPAstanaItStep\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }

@@ -46,10 +46,7 @@ namespace SEPAstanaItStep.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<int?>("Companyid")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CompnayId")
+                    b.Property<int?>("CompanyId")
                         .HasColumnType("int");
 
                     b.Property<int>("age")
@@ -63,7 +60,7 @@ namespace SEPAstanaItStep.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("Companyid");
+                    b.HasIndex("CompanyId");
 
                     b.ToTable("users");
                 });
@@ -72,7 +69,7 @@ namespace SEPAstanaItStep.Migrations
                 {
                     b.HasOne("SEPAstanaItStep.Models.Company", "Company")
                         .WithMany("User")
-                        .HasForeignKey("Companyid");
+                        .HasForeignKey("CompanyId");
 
                     b.Navigation("Company");
                 });
